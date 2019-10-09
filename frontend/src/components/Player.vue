@@ -1,9 +1,11 @@
 <template>
   <div>
-    
+    <a @click="playPrev()" class="ctrl">Prev</a>
+    <a @click="pause()" class="ctrl">Stop</a>
+    <a @click="playNext()" class="ctrl">Next</a>
     <ul>
-      <li v-for="file in files" v-bind:key="file">
-        <a href="">
+      <li v-for="(file,index) in files" v-bind:key="file">
+        <a @click="playIndex(index)">
           {{file}}
         </a>
       </li>
@@ -12,9 +14,7 @@
       <source  src="/musics/0">
     </audio>
 
-    <a @click="playPrev()" class="ctrl">Prev</a>
-    <a @click="pause()" class="ctrl">Stop</a>
-    <a @click="playNext()" class="ctrl">Next</a>
+    
   </div>
   
 </template>
@@ -65,7 +65,12 @@ export default {
     pause(){
       let player = this.$refs.player
       player.src = ""
-    }    
+    },
+    playIndex(index){
+      this.index = index
+      let player = this.$refs.player
+      player.src = ("/musics/" + this.index)
+    }  
   }
 }
 </script>
