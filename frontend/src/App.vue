@@ -1,6 +1,9 @@
 <template>
-  <div id="app">        
-    <Player/>
+  <div id="app">
+    <router-link to="/">Audio</router-link>|
+    <router-link to="/video">Video</router-link>
+    <router-view class="view"></router-view>     
+    
   </div>
 </template>
 

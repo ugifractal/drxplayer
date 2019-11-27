@@ -1,10 +1,23 @@
 import Vue from 'vue'
 import App from './App.vue'
+import VueRouter from 'vue-router'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+import Player from './components/Player.vue'
+import VideoPlayer from './components/VideoPlayer.vue'
+
 Vue.config.productionTip = false
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+  base: __dirname,
+  routes: [
+    {path: "/", component: Player},
+    {path: "/video", component: VideoPlayer},
+  ]
+})
 document.addEventListener("DOMContentLoaded",function(){
   window.pidMap = {
     "0C": "RPM", "0E": "Ign Timing", "2F": "Fuel Level", "31": "Distance",
@@ -57,6 +70,7 @@ document.addEventListener("DOMContentLoaded",function(){
   }
 
   new Vue({
+    router,
     render: h => h(App),
   }).$mount('#app')
 })

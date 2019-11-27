@@ -4,6 +4,10 @@
     <a @click="pause()" class="ctrl">Stop</a>
     <a @click="playNext()" class="ctrl">Next</a>
     <a @click="cls()" class="ctrl">Close</a>
+    <br/>
+    <video controls autoplay ref="player" @ended="playNext">
+      <source  src="/videos/0">
+    </video>
     <ul>
       <li v-for="(file,idx) in files" v-bind:key="file" style="list-style-type:none;">
         <a @click="playIndex(idx)">
@@ -14,9 +18,7 @@
         </span>
       </li>
     </ul>
-    <audio controls autoplay ref="player" style="display: none;" @ended="playNext">
-      <source  src="/musics/0">
-    </audio>
+    
 
     
   </div>
@@ -28,7 +30,7 @@ export default {
   mounted(){
     let self = this
     let audio;
-    window.store.fetchGet("/musics", function(data){
+    window.store.fetchGet("/videos", function(data){
       console.log(data)
       self.files.splice(0, self.files.length)
       for (let i=0; i<data.files.length;i++){
@@ -52,7 +54,7 @@ export default {
       let player = this.$refs.player
       console.log(player.src)
 
-      player.src = ("/musics/" + this.index)
+      player.src = ("/videos/" + this.index)
       //player.play()
     },
     playPrev(){
@@ -63,7 +65,7 @@ export default {
       let player = this.$refs.player
       console.log(player.src)
 
-      player.src = ("/musics/" + this.index)
+      player.src = ("/videos/" + this.index)
       //player.play()
     },
     pause(){
@@ -73,7 +75,7 @@ export default {
     playIndex(index){
       this.index = index
       let player = this.$refs.player
-      player.src = ("/musics/" + this.index)
+      player.src = ("/videos/" + this.index)
     },
     cls(){
       window.close()

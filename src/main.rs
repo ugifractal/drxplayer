@@ -12,15 +12,18 @@ use std::env;
 pub mod handlers;
 
 use crate::handlers::music_handler;
+use crate::handlers::video_handler;
 
 
 fn main() {
     println!("Hello, world!");
+    println!("static dir {:?}", env!("CARGO_MANIFEST_DIR"));
     dotenv::dotenv().expect("Failed to read .env file");  
     rocket::ignite()
         .mount("/", routes![
             music_handler::index, music_handler::get,
+            video_handler::index, video_handler::get,
             ])
-        .mount("/", StaticFiles::from(concat!(env!("CARGO_MANIFEST_DIR"), "/public")))
+        .mount("/", StaticFiles::from("public"))
         .launch();
 }
