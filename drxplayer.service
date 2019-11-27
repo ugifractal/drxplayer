@@ -1,13 +1,13 @@
 [Unit]
-Description=Rust Rocket Web Application Durux website
+Description=Rust Rocket Web Application Durux Music
 [Service]
-User=www-data
-Group=www-data
-WorkingDirectory=/home/deploy/apps/rustapp/drxplayer/
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/drxplayer
 Environment="ROCKET_ENV=prod"
 Environment="ROCKET_ADDRESS=0.0.0.0"
 Environment="ROCKET_PORT=8000"
 Environment="ROCKET_LOG=critical"
-ExecStart=/home/deploy/apps/rustapp/drxplayer/target/release/drxplayer
+ExecStart=/home/pi/apps/drxplayer/drxplayer
 [Install]
 WantedBy=multi-user.target
