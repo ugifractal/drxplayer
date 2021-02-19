@@ -1,13 +1,13 @@
 [Unit]
-Description=Rust Rocket Web Application Durux Music
+Description=Drxcarent
 [Service]
 User=pi
 Group=pi
-WorkingDirectory=/home/pi/drxplayer
+WorkingDirectory=/home/pi/drxcarent
 Environment="ROCKET_ENV=prod"
 Environment="ROCKET_ADDRESS=0.0.0.0"
 Environment="ROCKET_PORT=8000"
 Environment="ROCKET_LOG=critical"
-ExecStart=/home/pi/apps/drxplayer/drxplayer
+ExecStart=/home/pi/drxcarent/target/release/drxcarent
 [Install]
 WantedBy=multi-user.target

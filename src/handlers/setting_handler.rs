@@ -26,7 +26,7 @@ pub fn get_brightness() -> JsonValue{
 
 #[get("/settings/exit")]
 pub fn exit_chrome() -> JsonValue{
-  Command::new("pkill").arg("chromium");
+  Command::new("pkill").arg("chromium").spawn();
   json!({
     "status": "ok"
   })
