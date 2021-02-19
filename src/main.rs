@@ -32,7 +32,6 @@ fn main() {
             setting_handler::set_brightness, setting_handler::get_brightness,
             ])
         .mount("/build", StaticFiles::from(fe_build).rank(-2))
-        .mount("/ready", StaticFiles::from(fe).rank(-1))
-        .mount("/", StaticFiles::from("public").rank(0))
+        .mount("/", StaticFiles::from(fe).rank(0))
         .launch();
 }
