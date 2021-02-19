@@ -1,5 +1,5 @@
 [package]
-name = "drxplayer"
+name = "drxcarent"
 version = "0.1.0"
 authors = ["sugiarto <ugidmtest@gmail.com>"]
 edition = "2018"
@@ -7,8 +7,10 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-rocket = "0.4.2"
+rocket = "0.4.5"
 dotenv = "0.9.0"
+pear = "0.1.4"
+pear_codegen = "0.1.4"
 
 [dependencies.rocket_contrib]
 version = "0.4.2"
