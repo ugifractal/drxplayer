@@ -30,6 +30,7 @@ fn main() {
             music_handler::index, music_handler::get,
             video_handler::index, video_handler::get,
             setting_handler::set_brightness, setting_handler::get_brightness,
+            setting_handler::exit_chrome,
             ])
         .mount("/build", StaticFiles::from(fe_build).rank(-2))
         .mount("/ready", StaticFiles::from(fe).rank(-1))

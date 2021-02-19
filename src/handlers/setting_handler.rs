@@ -1,5 +1,6 @@
 use rocket_contrib::json::{Json, JsonValue};
 use std::fs;
+use std::process::Command;
 
 
 #[post("/settings/brightness/<value>")]
@@ -20,5 +21,13 @@ pub fn get_brightness() -> JsonValue{
 
   json!({
     "brightness": content.trim()
+  })
+}
+
+#[get("/settings/exit")]
+pub fn exit_chrome() -> JsonValue{
+  Command::new("pkill").arg("chromium");
+  json!({
+    "status": "ok"
   })
 }

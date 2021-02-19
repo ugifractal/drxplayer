@@ -3,6 +3,8 @@
 	import Settings from "./pages/Settings.svelte";
 	import Exit from "./pages/Exit.svelte";
 	import MusicPlayer from "./pages/MusicPlayer.svelte";
+	import * as Api from './apis/http'
+
 	export let url = "";
 	export let menuOpen = false;
 	export let name;
@@ -12,7 +14,8 @@
 	}
 
 	function cls(){
-		window.close()
+		//window.close()
+		Api.chromeExit()
 	}
 </script>
 
