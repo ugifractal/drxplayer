@@ -43,5 +43,17 @@ async function musicList(){
   return response
 }
 
-
-export {brightnessGet, brightnessSet, musicList}
+async function chromeExit(){
+  let response = await fetch(baseUrl + "/settings/exit", {
+    method: 'GET',
+    credentials: 'omit',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest'
+    }
+  })
+  console.log(response)
+  return response
+}
+export {brightnessGet, brightnessSet, musicList, chromeExit}
